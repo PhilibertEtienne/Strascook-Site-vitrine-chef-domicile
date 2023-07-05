@@ -1,0 +1,93 @@
+:root {
+    --color-white-basic: #f0f0f0;
+    --color-black-basic: #131313;
+    --color-black-low: #00000069;
+    --color-black-high: #00000000;
+    --color-title: rgb(224, 80, 64);
+
+    --font-script: "Pinyon Script", cursive;
+    --font-sans: "Source Sans Pro", sans-serif;
+    --font-text: "Lora", serif;
+
+    --font-weight-thin: 100;
+    --font-weight-regular: 600;
+    --font-weight-bold: 900;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    color: var(--color-black-basic);
+    background-color: var(--color-white-basic);
+    font-family: var(--font-text);
+    height: auto;
+    width: 100%;
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+}
+
+/* REVEAL */
+
+.reveal-loaded [class*="reveal-"] {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.reveal-loaded .reveal-visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: 1s cubic-bezier(0.3, 0, 0, 1);
+}
+
+.reveal-loaded .reveal-2 {
+    transition-delay: 0.1s;
+}
+
+.reveal-loaded .reveal-3 {
+    transition-delay: 0.3s;
+}
+
+.reveal-loaded .reveal-4 {
+    transition-delay: 0.5s;
+}
+
+.reveal-loaded .reveal-5 {
+    transition-delay: 0.7s;
+}
+
+/* SPAN */
+
+.color-title {
+    color: var(--color-title);
+}
+
+.font-script {
+    font-family: var(--font-script);
+    font-size: 118px;
+}
+
+/* DEFILEMENT */
+#back-to-top {
+    z-index: 1000;
+    position: fixed;
+    bottom: 80px;
+    right: 40px;
+    display: none;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+#back-to-top:hover {
+    background-color: #555;
+    color: #fff;
+}

@@ -1,0 +1,55 @@
+@import url("root.css");
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    color: var(--font-color-text);
+    font-family: var(--font-text);
+    height: auto;
+    width: 100vw;
+}
+
+body::before{
+    content: "";
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../images/horizontale_chef.jpg");
+    background-size: cover;
+    opacity: 0.7; /* Change this value to adjust the opacity */
+    z-index: -1;
+}
+
+table{
+    margin-top: 20vh;
+    background-color: rgb(255, 255, 255,0.8);
+    padding: 20px;
+    border-radius: 10px;
+    width: 50vw;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+th {
+    display: block;
+    margin-bottom: 20px;
+    margin-top: 30px;
+    justify-content: flex-start;
+    text-align: left;
+    padding: 10px;
+    color: var(--color-title);
+}
+
+
+td {
+    padding: 10px;
+    margin-right: 10px;
+    vertical-align: top;
+}

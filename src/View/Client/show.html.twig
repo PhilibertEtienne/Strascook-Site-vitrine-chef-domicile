@@ -1,0 +1,45 @@
+{% extends 'layout-admin.html.twig' %} {% block title %}{{ parent() }} - Fichier
+client{% endblock %} {% block content %}
+<h1>FICHIER CLIENTS</h1>
+<section class="show">
+    <table role="grid">
+        <thead>
+            <tr>
+                <th scope="col">ACTIONS</th>
+                <th scope="col">PRENOM</th>
+                <th scope="col">NOM</th>
+                <th scope="col">E-MAIL</th>
+                <th scope="col">TEL</th>
+                {# <th scope="col">DATE</th>
+                <th scope="col">CONVIVES</th> #}
+                <th scope="col">LIVRAISON</th>
+                <th scope="col">FACTURATION</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for key in commande %}
+            <tr>
+                <td>
+                    <a href="?id={{ key.idclient }}"
+                        ><img src="/assets/icons/icons8-remove-30-black.png"</a
+                    >
+                    <a href="update?id={{ key.idclient }}"
+                        ><img
+                        src="/assets/icons/icons8-settings-32-black.png"</a
+                    >
+                </td>
+                <td>{{ key.prenom }}</td>
+                <td>{{ key.nom }}</td>
+                <td>{{ key.email }}</td>
+                <td>{{ key.telephone }}</td>
+                {# <td>{{ key.date }}</td>
+                <td>{{ key.nbconvives }}</td> #}
+                <td>{{ key.adresse_livraison }}</td>
+                <td>{{ key.adresse_facturation }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</section>
+{% endblock %}

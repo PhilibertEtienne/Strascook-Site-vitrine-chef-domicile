@@ -1,0 +1,58 @@
+{% extends 'layout-admin.html.twig' %} {% block title %}{{ parent() }} - Devis {% endblock %} {% block content %}
+
+{% block stylesheet %}<link rel="stylesheet" href="/assets/css/devis.css">{% endblock %}
+
+<div class = "devis">
+<form method="POST" class="selector" class="choixValidation">
+    <select name="validated">
+        <option value="both">Choisissez un type de validation</option>
+        <option value="validated">validé</option>
+        <option value="unvalidated">non validé</option>
+        <option value="both">les deux</option>
+    </select>
+    <label> ou par numéro de commande :</label>
+    <input type="number" id="idCommande" name="idCommande" value="idCommande" class="choixCommande">
+    <button class="valider"> submit</button>
+</form>
+
+<main class="container">
+    <h1>COMMANDES</h1>
+    <section>
+        <div>
+        {% for numcommande in devis %}
+{% set isValidClass = numcommande['isValid'] ? 'commande-valid' : 'commande-invalid' %}
+<div class = "commande {{ isValidClass }}{% if numcommande.isValid == 1 %} valide{% elseif numcommande.isValid == 0 %} non-valide{% endif %}">
+                        <h4>Numéro de commande : {{ numcommande['client'].numeroCommande }} </h4>
+                        <br></br>                        
+                <div>
+                    <h3>Contact</h3>
+                    <p><b>NOM:</b> {{ numcommande['client'].nom }}</p>
+                    <p><b>PRENOM:</b> {{ numcommande['client'].prenom }}</p>
+                    <p><b>E-MAIL:</b> {{ numcommande['client'].email }}</p>
+                    <p><b>TEL:</b> {{ numcommande['client'].telephone }}</p>
+                    <p><b>DATE:</b> {{ numcommande['client'].date }}</p>
+                    <p><b>CONVIVES:</b> {{ numcommande['client']['nbconvives'] }}</p>
+                    {% set total = 0 %}
+                    <h3>Commande:</h3>
+                    {% for produit in numcommande['details'] %}
+                        <p><b>Produit: </b>{{ produit['produit']}} <b>Quantité:</b> {{ produit['quantite'] }} <b>Total articles:</b> {{ produit['prix']* produit['quantite'] }} €</p>
+                    {% endfor %}
+{% set total = 0 %}
+{% for produit in numcommande['details'] %}
+    {% set total = total + produit['prix'] * produit['quantite'] %}
+{% endfor %}
+<h3 class = 'right'>Prix total: {{ total }}€</h3>
+                </div>
+                    <form method="post">
+                        <button name="validate" value="{{ numcommande['client'].numeroCommande }}|valider" class="valider"> Valider</button>
+                        <button name="validate" value="{{ numcommande['client'].numeroCommande }}|refuser" class ="refuser"> Refuser</button>
+                        <button name="validate" value="{{ numcommande['client'].numeroCommande }}|supprimer" class ="supprimer"> Supprimer</button>
+                    </form>
+            </article>
+        </div>
+    {% endfor %}
+    </div>
+</section>
+</main>
+{% endblock %}
+

@@ -1,0 +1,43 @@
+{% block title %}Votre commande{% endblock %}
+{% extends 'layout.html.twig' %}
+{% block stylesheet %}
+  <link rel="stylesheet" href="/assets/css/commandeproduit.css">
+{% endblock %}
+
+
+{% block content %}
+  <table class="reveal-1">
+    <tbody>
+          <tr class = "tabletitre">
+        <td>Produit</td>
+        <td>Quantité</td>
+        <td>Prix</td>
+      </tr>
+      {% for row in commandeProduits %}
+        {% if row[1] > 0 %}
+          <tr>
+            <td class="produit">{{ row[0] }}</td>
+            <td>{{ row[1] }}</td>
+            <td>{{ row[2] }}€</td>
+          </tr> 
+        {% endif %}
+      {% endfor %}
+      <tr>
+        <td class="produit">Somme totale</td>
+        <td></td>
+        <td>{{prixTotal}}€</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <form action="/coordonneesclient" class="confirmation reveal-1">    
+    <a href="/menu">Je modifie ma commande</a>
+    <button>Je confirme</button>
+  </form>
+{% endblock %}
+
+{% block javascript %}
+  <script type="text/javascript" src="/assets/js/reveal.js"></script>
+  <script type="text/javascript" src="/assets/js/scroll.js"></script>
+  <script type="text/javascript" src="/assets/js/defilement.js"></script>
+{% endblock %}

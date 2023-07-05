@@ -1,0 +1,122 @@
+{% extends 'layout.html.twig' %}
+{% block stylesheet %}<link rel="stylesheet" href="/assets/css/index.css"/>
+{% endblock %}
+{% block title %}
+	{{ parent() }}
+	- Cuisine à domicile
+{% endblock
+%}
+{% block content %}
+
+	<div class="content">
+		<a href="#" id="back-to-top" title="Retour en haut de la page">
+			<i class="fas fa-chevron-circle-up"></i>
+		</a>
+		<div class="presentation">
+			<video src="../assets/images/video.webm" autoplay muted loop id="myVideo"></video>
+			<h1 class="reveal-2">Chef Guédon</h1>
+			<div class="vertical-bar-white reveal-3"></div>
+			<h2 class="reveal-4">CUISINE POUR VOUS, A DOMICILE.</h2>
+			<div class="scroll-indicator">
+				<i class="fas fa-angle-double-down"></i>
+			</div>
+		</div>
+
+		<div class="histoire">
+			<div class="histoire-left">
+				<h2 class="reveal-1">
+					<span class="color-title font-script">Qui</span>
+					SUIS-JE ?
+				</h2>
+				<div class="vertical-bar-black reveal-2"></div>
+				<p class="reveal-3">
+					Jeune chef de cuisine passionné et talentueux selon mes paires,
+										                j'ai développé une cuisine inventive, originale et
+										                gastronomique. Depuis mon plus jeune âge, je m'intéresse à la
+										                cuisine et passe des heures à expérimenter de nouvelles saveurs
+										                et à créer des plats innovants. Diplômé en études culinaires de
+										                niveau supérieur, avec une spécialisation en création culinaire,
+										                j'ai travaillé dans de nombreux restaurants gastronomiques,
+										                acquérant une expérience précieuse et perfectionnant ses
+										                compétences culinaires. Aujourd'hui je met au service des autres
+										                ma véritable passion qui est de créer des expériences culinaires
+										                personnalisées pour mes clients, directement chez vous. C'est
+										                ainsi que j'ai décidé de lancer mon service de cuisine à
+										                domicile, offrant des repas gastronomiques dans le confort de
+										                votre propre maison.
+				</p>
+				<div class="vertical-bar-black reveal-4"></div>
+			</div>
+			<div class="histoire-right reveal-5">
+				<img src="/assets/images/chef1.jpg"/>
+			</div>
+		</div>
+
+		<div class="menu-semaine">
+			<div class="menu-semaine-left reveal-1">
+				<img src="/assets/images/verticale_partage.jpg"/>
+			</div>
+			<div class="menu-semaine-right">
+				<h2 class="reveal-2">
+					A VOTRE
+					<span class="color-title font-script">Service</span>
+				</h2>
+				<div class="vertical-bar-black reveal-3"></div>
+				<p class="reveal-4">
+					Vous êtes à la recherche d'une expérience culinaire unique pour
+										                impressionner vos invités lors de votre prochaine soirée? Je
+										                suis là pour répondre à toutes vos attentes. Spécialisé dans la
+										                création de dîners privés exclusifs pour des clients exigeants.
+										                Fort de mon expérience et de ma passion pour la cuisine, je crée
+										                des menus chaque semaine en utilisant des ingrédients frais et
+										                de qualité. A votre service pour vous permettre de vous détendre
+										                et de profiter de votre soirée avec vos invités, sans vous
+										                soucier de la préparation et de la présentation de la
+										                nourriture. Je m'occupe de tout, de la planification du menu à
+										                la cuisine, en passant par la présentation de chaque plat. Avec
+										                moi, vous êtes assuré de recevoir une expérience culinaire
+										                inoubliable qui ravira vos papilles et celles de vos invités.
+										                Contactez-moi dès aujourd'hui pour réserver votre soirée.
+				</p>
+				<div class="vertical-bar-black reveal-5"></div>
+			</div>
+		</div>
+
+		<div class="menu-semaine-inv">
+			<div class="menu-semaine-inv-left">
+				<h2 class="reveal-1">
+					A VOTRE
+					<span class="color-title font-script">Service</span>
+				</h2>
+				<div class="vertical-bar-black reveal-2"></div>
+				<p class="reveal-3">
+					Vous êtes à la recherche d'une expérience culinaire unique pour
+										                impressionner vos invités lors de votre prochaine soirée? Je
+										                suis là pour répondre à toutes vos attentes. Spécialisé dans la
+										                création de dîners privés exclusifs pour des clients exigeants.
+										                Fort de mon expérience et de ma passion pour la cuisine, je crée
+										                des menus chaque semaine en utilisant des ingrédients frais et
+										                de qualité. A votre service pour vous permettre de vous détendre
+										                et de profiter de votre soirée avec vos invités, sans vous
+										                soucier de la préparation et de la présentation de la
+										                nourriture. Je m'occupe de tout, de la planification du menu à
+										                la cuisine, en passant par la présentation de chaque plat. Avec
+										                moi, vous êtes assuré de recevoir une expérience culinaire
+										                inoubliable qui ravira vos papilles et celles de vos invités.
+										                Contactez-moi dès aujourd'hui pour réserver votre soirée.
+				</p>
+				<div class="vertical-bar-black reveal-4"></div>
+			</div>
+			<div class="menu-semaine-inv-right reveal-5">
+				<img src="/assets/images/verticale_partage.jpg"/>
+			</div>
+		</div>
+	</div>
+	<script>
+		var video = document.getElementById("myVideo");
+video.playbackRate = 0.6;
+	</script>
+{% endblock %}
+{% block javascript %}
+	{{ parent() }}
+{% endblock %}

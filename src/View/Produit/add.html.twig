@@ -1,0 +1,78 @@
+{% extends 'layout-admin.html.twig' %} {% block title %}{{ parent() }} - Ajouter
+un produit {% endblock %} {% block content %}
+<main class="container">
+    <h1>AJOUTER UN PRODUIT</h1>
+    <section class="admin-nav"></section>
+    <section class="form">
+        <form method="post" enctype="multipart/form-data">
+            <div class="grid">
+                <input
+                    type="integer"
+                    id="annee"
+                    name="annee"
+                    placeholder="Année"
+                    required
+                />
+            </div>
+            <div class="grid">
+                <input
+                    type="integer"
+                    id="semaine"
+                    name="semaine"
+                    placeholder="Numéro de semaine"
+                    required
+                />
+            </div>
+            <div class="grid">
+                <input
+                    type="text"
+                    id="nom"
+                    name="nom"
+                    placeholder="Nom "
+                    required
+                />
+            </div>
+
+            <div class="grid">
+                <input
+                    type="text"
+                    id="description"
+                    name="description"
+                    placeholder="Description"
+                    required
+                />
+            </div>
+
+            <select id="menu" name="menu" required>
+                <option value="" selected>
+                    Selectionnez le type de menu :
+                </option>
+                <option value="entree">Entrée</option>
+                <option value="plat">Plat</option>
+                <option value="dessert">Dessert</option>
+                <option value="boisson">Boisson</option>
+            </select>
+
+            <select id="regime" name="regime" required>
+                <option value="" selected>Selectionnez le régime :</option>
+                <option value="carnivore">Carnivore</option>
+                <option value="poisson">Poisson</option>
+                <option value="vegetarien">Végétarien</option>
+                <option value="autre">Non défini</option>
+            </select>
+
+            <div class="grid">
+                <input
+                    type="integer"
+                    id="prix"
+                    name="prix"
+                    placeholder="Prix"
+                    required
+                />
+            </div>
+
+            <button type="submit">AJOUTER LE PRODUIT</button>
+        </form>
+    </section>
+</main>
+{% endblock %}

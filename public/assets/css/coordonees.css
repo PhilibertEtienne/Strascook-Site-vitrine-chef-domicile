@@ -1,0 +1,96 @@
+@import url("root.css");
+
+* {
+margin: 0px;
+padding: 0px;
+box-sizing: border-box;
+}
+
+
+body {
+height: 100vh !important;
+display: flex;
+flex-direction: column;
+align-items:  center;
+}
+
+
+header {
+    position: absolute !important;
+    top: 0 !important;
+    background-color: rgba(0, 0, 0, 0.29) !important;
+}
+
+footer {
+margin-top: auto;
+}
+
+    main, footer
+body {
+color: var(--font-color-text);
+font-family: var(--font-text);
+width: 100vw;
+}
+
+body::before{
+content: "";
+display: block;
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-image: url("../images/horizontale_chef.jpg");
+background-size: cover;
+opacity: 0.7; /* Change this value to adjust the opacity */
+z-index: -1;
+}
+
+.container {
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+padding: 20px;
+/* background-color: rgb(255, 255, 255); */
+max-width: 65vw;
+border-radius: 10px;
+height: 100%; /* Add this rule to make the container full height */
+}
+
+
+form {
+padding: 50px;
+border-radius: 10px;
+align-items: center;
+justify-content: center;
+background-color:rgb(255, 255, 255,0.8); 
+
+}
+
+button {
+border-radius: 5px;
+padding: 10px;
+background-color: var(--color-title);
+color: rgb(255, 255, 255);  
+margin-top: 2em;
+display: inline-block;
+float: right;
+}
+
+input{
+display: block;
+margin: 0 auto;
+border-radius: 5px;
+margin-top: 15px;
+text-align: center;
+}
+
+input::placeholder{
+    font-family: var(--font-text);
+    font-style: italic;
+}
+
+h1 {
+margin-bottom: 20px;
+}

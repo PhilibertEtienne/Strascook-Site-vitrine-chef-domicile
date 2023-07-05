@@ -1,0 +1,95 @@
+{% extends 'layout.html.twig' %}
+{% block stylesheet %}
+
+  <link rel="stylesheet" href="/assets/css/commandevalide.css">
+
+{% endblock %}
+
+{% block title %}{{ parent() }} - Merci pour votre commande!{% endblock %}
+{% block content %}
+
+
+{% if lastClient is not empty %}
+
+    <table>
+    <tr>
+    <td ><h2 class="middle">Récapitulatif de votre commande:</h2></td>
+    </tr>
+        <tr>
+            <td class='bold'> Prénom</tdccla>
+
+            <td>{{ lastClient.prenom }}</td>
+            <hr>
+        </tr>
+
+        <tr>
+            <td class='bold'>Nom</td>
+
+            <td>{{ lastClient.nom }}</td>
+            
+        </tr>
+
+        <tr>
+            <td class='bold'>Email</td>
+            <td>{{ lastClient.email }}</td>
+        <tr>
+        
+            
+        <tr>
+            <td class='bold'>Nb convives</td>
+
+            <td>{{ dateAndConvives.nbconvives }}</td>
+        </tr>
+        <tr>
+            <td  class='bold'>Téléphone</td>
+
+            <td>{{ lastClient.telephone }}</td>
+        </tr>
+
+        <tr>
+            <td  class='bold'>Date</td>
+
+            <td>{{ dateAndConvives.date }}</td>
+        </tr>
+
+        <tr>
+            <td  class='bold'>Adresse de livraison</td>
+
+            <td>{{ lastClient.adresse_livraison }}</td>
+        </tr>
+
+        <tr>
+            <td  class='bold'>Adresse de facturation</td>
+
+            <td>{{ lastClient.adresse_facturation }}</td>
+        </tr>
+        {% for product, details in orderedProducts %}
+        <tr>
+            <td  class='bold'>{{ product }}</td>
+            <td>Quantité : {{ details['quantity'] }}</td>
+        </tr>
+      <br>
+{% endfor %}
+        <tr>
+            <td  class='bold'>Prix total: </td>
+            <td >{{ prixTotal }} €</td>
+        </tr>
+    </table>
+
+     
+     <br>
+
+
+{% endif %}
+</section>
+</div>
+    <p class='thanks'>Merci pour votre commande ! Le chef vous contactera dans les plus brefs délais pour donner suite à votre commande et vous servir au mieux selon ses disponibilités.</p>
+
+<br>
+
+<a href="/" class ='returnHome'>Revenir à l'accueil.</a>
+
+</main>
+{% endblock %}
+
+{% block javascript %} {{ parent() }}{% endblock %}

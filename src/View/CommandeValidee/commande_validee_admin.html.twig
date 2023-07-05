@@ -1,0 +1,41 @@
+{% extends 'layout-admin.html.twig' %}
+
+{% block title %}{{ parent() }} - Commandes{% endblock %}
+
+{% block content %}
+
+<main class="container">
+    <h1>COMMANDES</h1>
+    <section>
+        <div>
+        {% for client in clients %}
+            <div>
+                <article>
+                    <header>
+                        <h4>{{ client.nom }} {{ client.prenom }}</h4>
+                        
+                    </header>
+                <div>
+                    <h5>Contact</h5>
+                    <p><b>E-MAIL:</b> {{ client.email }}</p>
+                    <p><b>TEL:</b> {{ client.telephone }}</p>
+                    <p><b>DATE:</b> {{ client.date }}</p>
+                    <p><b>CONVIVES:</b> {{ client.nbconvives }}</p>
+                    {% set total = 0 %}
+                    <h5>Commande:</h5>
+                    {% for product, details in orderedProducts %}
+                        <p><b>Produit: </b>{{ product }} <b>Quantité:</b> {{ details['quantity'] }} <b>Total articles:</b> {{ details['price'] }} €</p>
+                        {% set total = total + details['price'] %}
+                    {% endfor %}
+                    <h5>Prix total: {{ total }}€</h5>
+                </div>
+            </article>
+        </div>
+    {% endfor %}
+    </div>
+</section>
+</main>
+
+{% endblock %}
+
+{% block javascript %} {{ parent() }}{% endblock %}

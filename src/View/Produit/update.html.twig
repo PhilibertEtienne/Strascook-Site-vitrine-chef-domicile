@@ -1,0 +1,98 @@
+{% extends 'layout-admin.html.twig' %} {% block title %}{{ parent() }} - Modifier un produit{%
+endblock %} {% block content %}
+<main class="container">
+    <h1>MODIFIER UN PRODUIT</h1>
+    <section class="form">
+        <form method="post" enctype="multipart/form-data">
+            <div class="grid">
+                <label for="annee">
+                    Année
+                    <input
+                        type="integer"
+                        id="annee"
+                        name="annee"
+                        placeholder="2023"
+                        value="{{ produits.annee }}"
+                        required
+                    />
+                </label>
+            </div>
+            <div class="grid">
+                <label for="semaine">
+                    Semaine
+                    <input
+                        type="integer"
+                        id="semaine"
+                        name="semaine"
+                        placeholder="Numéro de semaine"
+                        value="{{ produits.semaine }}"
+                        required
+                    />
+                </label>
+            </div>
+            <div class="grid">
+                <label for="nom">
+                    Nom
+                    <input
+                        type="text"
+                        id="nom"
+                        name="nom"
+                        placeholder="Nom "
+                        value="{{ produits.nom }}"
+                        required
+                    />
+                </label>
+            </div>
+
+            <div class="grid">
+                <label for="description">
+                    Description
+                    <input
+                        type="text"
+                        id="description"
+                        name="description"
+                        placeholder="Description"
+                        value="{{ produits.description }}"
+                        required
+                    />
+                </label>
+            </div>
+
+            <label for="menu">Menu</label>
+            <select id="menu" name="menu" required>
+                <option value="" {% if not produits.menu %}selected{% endif %}>Selectionnez :</option>
+                <option value="entree" {% if produits.menu == 'entree' %}selected{% endif %}>Entrée</option>
+                <option value="plat" {% if produits.menu == 'plat' %}selected{% endif %}>Plat</option>
+                <option value="dessert" {% if produits.menu == 'dessert' %}selected{% endif %}>Dessert</option>
+                <option value="boisson" {% if produits.menu == 'boisson' %}selected{% endif %}>Boisson</option>
+            </select>
+            
+            
+            <label for="regime">Régime</label>
+            <select id="regime" name="regime" required>
+                <option value="" {% if not produits.regime %}selected{% endif %}>Selectionnez :</option>
+                <option value="carnivore" {% if produits.regime == 'carnivore' %}selected{% endif %}>Carnivore</option>
+                <option value="poisson" {% if produits.regime == 'poisson' %}selected{% endif %}>Poisson</option>
+                <option value="vegetarien" {% if produits.regime == 'vegetarien' %}selected{% endif %}>Végétarien</option>
+                <option value="autre" {% if produits.regime == 'autre' %}selected{% endif %}>Non défini</option>
+            </select>
+
+            <div class="grid">
+                <label for="prix">
+                    Prix
+                    <input
+                        type="integer"
+                        id="prix"
+                        name="prix"
+                        placeholder="Prix"
+                        value="{{ produits.prix }}"
+                        required
+                    />
+                </label>
+            </div>
+
+            <button type="submit">MODIFIER</button>
+        </form>
+    </section>
+</main>
+{% endblock %}

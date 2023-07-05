@@ -1,0 +1,41 @@
+{% extends 'layout-admin.html.twig' %} {% block title %}{{ parent() }} - Produit
+à venir{% endblock %} {% block content %}
+<h1>PRODUITS A VENIR</h1>
+<section class="show">
+    <table role="grid">
+        <thead>
+            <tr>
+                <th scope="col">SEMAINE</th>
+                <th scope="col">NOM</th>
+                <th scope="col">DESCRIPTION</th>
+                <th scope="col">MENU</th>
+                <th scope="col">REGIME</th>
+                <th scope="col">PRIX</th>
+                <th scope="col">ACTION</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                {% for produit in produits %}
+                <td>{{ produit.semaine }}</td>
+                <td>{{ produit.nom }}</td>
+                <td>{{ produit.description }}</td>
+                <td>{{ produit.menu }}</td>
+                <td>{{ produit.regime }}</td>
+                <td>{{ produit.prix }} €</td>
+                <td>
+                    <a href="?id={{ produit.idproduit }}"
+                        ><img src="/assets/icons/icons8-remove-30-black.png"</a
+                    >
+                    <a href="update?id={{ produit.idproduit }}"
+                        ><img
+                        src="/assets/icons/icons8-settings-32-black.png"</a
+                    >
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</section>
+{% endblock %}

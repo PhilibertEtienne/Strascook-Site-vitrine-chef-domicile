@@ -1,0 +1,64 @@
+{% extends 'layout.html.twig' %} {% block title %}{{ parent() }} - Vos coordonnées {% endblock %} {% block content %}
+{% block stylesheet %}
+  <link rel="stylesheet" href="/assets/css/coordonees.css">
+{% endblock %}
+<main class="container">
+    <section>
+
+            <form method="post" enctype="multipart/form-data">  
+            <h1>Entrez vos coordonnées</h1>
+                              <input
+                        type="text"
+                        id="nom"
+                        name="nom"
+                        placeholder="Nom"
+                        required
+                    />                    <input
+                        type="text"
+                        id="prenom"
+                        name="prenom"
+                        placeholder="Prénom"
+                        required
+                    />                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Email"
+                        required
+                    />                    <input
+                        type="text"
+                        id="telephone"
+                        name="telephone"
+                        placeholder="Téléphone"
+                        required
+                    />                    <input
+                        type="date"
+                        id="date"
+                        name="date"
+                        placeholder="Date"
+                        required
+                    />                    <input
+                        type="number"
+                        id="nbconvives"
+                        name="nbconvives"
+                        placeholder="Nombre de convives"
+                        min="0"
+                        required
+                    />                    <input
+                        type="text"
+                        id="adresse_facturation"
+                        name="adresse_facturation"
+                        placeholder="Adresse de facturation"
+                        required
+                    />                    <input
+                        type="text"
+                        id="adresse_livraison"
+                        name="adresse_livraison"
+                        placeholder="Lieu de la restauration"
+                        required
+                    />               
+  <button type="submit">Soumettre</button>           </form>
+
+    </section>
+</main>
+{% endblock %}

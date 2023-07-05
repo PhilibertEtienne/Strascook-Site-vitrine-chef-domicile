@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="/assets/css/login.css"/>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css"/>
+		<title>Login</title>
+	</head>
+	<body>
+{% block content %}
+<main class="container">
+<ul>
+	{% for error in errors %}
+	<li> {{error}}</li>
+	{% endfor %}
+</ul>	
+<div>
+		<div>
+			<form
+				method="post">
+				<div>
+					<h2>
+						Connection
+					</h2>
+				</div>
+				<div>
+					<div class="zone">
+						<input type="text" aria-label="Not clickable icon" name="username" placeholder="Nom" required>
+					</div>
+				</div>
+				<div>
+					<div class="zone">
+						<input type="password" aria-label="Not clickable icon" name="password" placeholder="Mot de passe" required>
+					</div>
+				</div>
+
+				<div class="endButtons">
+					<button type="submit" name="submit" class="zone"> Se connecter </button>
+					<a href="/logout" role="button" class="secondary outline zone">Se déconnecter</a>
+				</div>
+			</form>
+		</div>
+	</div>
+	
+</main>
+{% endblock %}
+
+	</body>
+	</html>
+	
+	
+	
+	
+	
+

@@ -1,0 +1,73 @@
+{% extends 'layout-admin.html.twig' %} {% block title %}{{ parent() }} - Ajouter
+un client {% endblock %} {% block content %}
+<main class="container">
+    <h1>AJOUTER UN CLIENT</h1>
+    <section>
+        <form method="post" enctype="multipart/form-data">
+            <div>
+                <input
+                    type="text"
+                    id="nom"
+                    name="nom"
+                    placeholder="Nom"
+                    required
+                />
+            </div>
+
+            <div>
+                <input
+                    type="text"
+                    id="prenom"
+                    name="prenom"
+                    placeholder="Prénom"
+                    required
+                />
+            </div>
+
+            <div>
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Email"
+                    required
+                />
+            </div>
+
+            <div>
+                <input
+                    type="text"
+                    id="telephone"
+                    name="telephone"
+                    placeholder="Téléphone"
+                    required
+                />
+            </div>
+
+
+            <div>
+                <input
+                    type="text"
+                    id="adresse_facturation"
+                    name="adresse_facturation"
+                    placeholder="Adresse de facturation"
+                    required
+                />
+            </div>
+
+            <div>
+                <input
+                    type="text"
+                    id="adresse_livraison"
+                    name="adresse_livraison"
+                    placeholder="Lieu de la restauration"
+                    required
+                />
+            </div>
+
+            <button type="submit">Soumettre</button>
+        </form>
+    </section>
+</main>
+
+{% endblock %}

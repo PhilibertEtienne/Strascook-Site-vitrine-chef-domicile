@@ -1,0 +1,58 @@
+@import url("root.css");
+
+:root {
+    background-color: var(--color-black-basic);
+}
+
+body {
+    background-color: var(--color-black-basic);
+}
+
+button {
+    color: var(--color-black-basic) !important;
+    background-color: var(--color-white-basic) !important;
+    border: none !important;
+    width: 50% !important;
+    font-weight: 400 !important;
+}
+
+a {
+    color: var(--color-white-basic) !important;
+    border-color: white !important;
+    margin-bottom: 19px;
+    font-weight: 500 !important;
+}
+
+input {
+    color: var(--color-black-basic) !important;
+    background-color: var(--color-white-basic) !important;
+    border: none !important;
+
+}
+
+.endButtons {
+    display: flex !important;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    font-family: var(--font-family);
+}
+
+.zone {
+    margin-bottom: 15px;
+}
+
+@media screen and (max-width: 350px) {
+    .endButtons {
+        flex-direction: column;
+    }
+
+    button {
+        width: 100% !important;
+    }
+
+    a {
+        width: 100% !important;
+    }
+
+
+}

@@ -1,0 +1,48 @@
+@import url("root.css");
+
+/* NAV */
+header {
+    z-index: 9999;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: auto;
+    min-height: 10vh;
+    width: 100%;
+    position: fixed;
+    padding: 30px;
+    font-family: var(--font-sans);
+    font-weight: var(--font-weight-thin);
+    font-size: 30px;
+    color: var(--color-white-basic);
+    text-shadow: rgb(0, 0, 0) 1px 0 10px;
+    background-color: var(--color-black-high);
+    transition: background-color 0.5s ease;
+    text-decoration: none;
+}
+
+header a {
+    text-decoration: none;
+    color: var(--color-white-basic);
+}
+
+header.scrolled {
+    background-color: var(--color-black-low);
+    transition: background-color 0.5s ease;
+}
+
+.divHeader {
+    text-align: center;
+}
+
+@media all and (max-width: 1024px) {}
+
+@media all and (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media all and (max-width: 320px) {}

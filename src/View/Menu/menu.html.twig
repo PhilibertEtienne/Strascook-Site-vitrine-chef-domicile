@@ -1,0 +1,117 @@
+<html lang="fr">
+	<head>
+		<meta charset="utf-8"/>
+		<meta http-equiv="x-ua-compatible" content="ie=edge"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<link rel="preconnect" href="https://fonts.googleapis.com"/>
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+		<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet"/>
+		<link rel="preconnect" href="https://fonts.googleapis.com"/>
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+		<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap" rel="stylesheet"/>
+		<link rel="preconnect" href="https://fonts.googleapis.com"/>
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+		<link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap" rel="stylesheet"/>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"/>
+		<link rel="icon" href="/assets/images/favicon.png"/>
+		<title>
+			{% block title %}Menu de la semaine
+			{% endblock %}
+		</title>
+	</head>{% block stylesheet %}<link rel="stylesheet" href="/assets/css/menu.css">{% endblock %}
+{% block content %}
+<header>
+    <div><a href="/">HOME</a></div>
+</header>
+<div class="menu reveal-1">
+  <form method="POST" class="selector">
+    <select name="week">
+      <option value="currentWeek">choisissez la semaine</option>
+      <option value="currentWeek">Cette semaine</option>
+      <option value="nextWeek">La semaine prochaine</option>
+    </select>
+    <div class="selectbox">
+      <label class="titrelabel">Par régime alimentaire :</label>
+    </div>
+    <div class="selectbox">
+      <input type="checkbox" id="vegetarien" name="regime" value="vegetarien">
+      <label>Vegetarien</label>
+    </div>
+    <div class="selectbox">
+      <input type="checkbox" id="carnivore" name="regime" value="carnivore">
+      <label>Carnivore</label>
+    </div>
+    <div class="selectbox">
+      <input type="checkbox" id="sansgluten" name="regime" value="poisson">
+      <label>Poisson</label>   
+    </div>   
+    <div class="selectbox">
+      <button> Accepter </button>
+    </div>
+  </form>
+<form method="post" action="/commandeproduit" class="listeproduits">
+<table>
+  <tbody>
+    <th>ENTRÉES</th>
+    {% for row in entree %}
+      <tr>
+        <td class="produit">{{ row.nom }}</td>
+        <td class="description">{{ row.description }}</td>
+        <td>{{ row.prix }}€</td>
+        <td>
+          <input type="number" name="commande[]" placeholder="Quantité souhaitée" min="0" value="0" >
+          <input type="hidden" name="plat[]" value="{{ row.nom }}">
+          <input type="hidden" name="prix[]" value="{{ row.prix }}">
+        </td>
+      </tr>
+    {% endfor %}
+    <th>PLATS</th>
+    {% for row in plat %}
+      <tr>
+        <td class="produit">{{ row.nom }}</td>
+        <td class="description">{{ row.description }}</td>
+        <td>{{ row.prix }}€</td>
+        <td>
+          <input type="number" name="commande[]" placeholder="Quantité souhaitée" min="0" value="0">
+          <input type="hidden" name="plat[]" value="{{ row.nom }}">
+          <input type="hidden" name="prix[]" value="{{ row.prix }}">
+        </td>        
+      </tr>
+    {% endfor %}
+    <th>DESSERTS</th>
+    {% for row in dessert %}
+      <tr>
+        <td class="produit">{{ row.nom }}</td>
+        <td class="description">{{ row.description }}</td>
+        <td>{{ row.prix }}€</td>
+        <td>
+          <input type="number" name="commande[]" placeholder="Quantité souhaitée" min="0" value="0">
+          <input type="hidden" name="plat[]" value="{{ row.nom }}">
+          <input type="hidden" name="prix[]" value="{{ row.prix }}">
+        </td>             
+      </tr> 
+    {% endfor %}
+    <th>BOISSONS</th>
+    {% for row in boissons %}
+      <tr>
+        <td class="produit">{{ row.nom }}</td>
+        <td class="description">{{ row.description }}</td>
+        <td>{{ row.prix }}€</td>
+        <td>
+          <input type="number" name="commande[]" placeholder="Quantité souhaitée" min="0" value="0">
+          <input type="hidden" name="plat[]" value="{{ row.nom }}">
+          <input type="hidden" name="prix[]" value="{{ row.prix }}">
+        </td>             
+      </tr> 
+    {% endfor %}
+  </tbody>
+</table>
+    <button> Commander</button>
+</form>
+</div>
+{% endblock %}
+ {% block javascript %}
+        <script type="text/javascript" src="/assets/js/reveal.js"></script>
+        <script type="text/javascript" src="/assets/js/scroll.js"></script>
+        <script type="text/javascript" src="/assets/js/defilement.js"></script>
+        {% endblock %}

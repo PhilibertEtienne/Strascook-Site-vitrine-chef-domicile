@@ -1,0 +1,94 @@
+@import url("root.css");
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+
+header {
+    margin-bottom: 20px;
+}
+
+.selector {
+    display: flex;
+    align-items: center;
+    max-width: 70%;
+    justify-content: center ;
+    padding: 20px;
+    border-radius: 10px;
+    flex-wrap: wrap;
+}
+
+.selector select,input {
+    margin: 0px 10px 0px 10px
+}
+
+select{
+    font-family: var(--font-text);
+    font-style: italic;
+}
+
+button {
+    border-radius: 5px;
+    padding: 10px;
+    color: rgb(255, 255, 255);  
+}
+
+
+.valider,.refuser{
+    display: inline-block;
+    float: right;
+}
+
+.valider {
+    background-color: rgb(78, 199, 111);
+}
+.refuser {
+    background-color: rgb(175, 054, 054);
+    margin-right: 30px;
+}
+
+.supprimer {
+    background-color: rgb(0, 0, 0);
+}
+
+
+.refuser,.valider,.supprimer{
+    margin-top: 10px;
+}
+.devis {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.container {
+    margin-top: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 70vw;
+    /* justify-content: center; */
+    align-items: center;
+}
+
+.commande {
+    padding: 20px;
+    background-color: bisque;
+    margin: 10px 0px 10px 0px;
+    border-radius: 10px;
+    margin-bottom: 50px;
+}
+
+.commande p,h3 {
+    margin-bottom: 10px;
+}
+
+
+.valide {
+    background-color: rgb(137, 248, 137);
+  }
+  .non-valide {
+    background-color: rgb(252, 150, 150);
+  }

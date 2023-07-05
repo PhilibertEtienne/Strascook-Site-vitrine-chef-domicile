@@ -1,0 +1,95 @@
+{% extends 'layout-admin.html.twig' %} {% block title %}{{ parent() }} - Menu
+par semaine{% endblock %} {% block content %}
+<main class="container">
+    <h1>MENU PAR SEMAINE</h1>
+    <section class="form">
+        <form method="post" enctype="multipart/form-data">
+            <div class="grid">
+                <label for="annee">
+                    Année
+                    <input
+                        type="integer"
+                        id="annee"
+                        name="annee"
+                        placeholder="2023"
+                        required
+                    />
+                </label>
+            </div>
+            <div class="grid">
+                <label for="semaine">
+                    Semaine
+                    <input
+                        type="integer"
+                        id="semaine"
+                        name="semaine"
+                        placeholder="Numéro de semaine"
+                        required
+                    />
+                </label>
+            </div>
+
+            <button type="submit">AFFICHER LE MENU</button>
+        </form>
+    </section>
+</main>
+<p>
+    SEMAINE {{ semaine }} - DU {{ weeks.debut }} AU
+    {{ weeks.fin }}
+</p>
+
+<section class="show">
+    <table role="grid">
+        <thead>
+            <tr>
+                <th scope="col">NOM</th>
+                <th scope="col">DESCRIPTION</th>
+                <th scope="col">MENU</th>
+                <th scope="col">REGIME</th>
+                <th scope="col">PRIX</th>
+                <th scope="col">ACTION</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% if produitbyweek %} {% for produit in produitbyweek %}
+            <tr>
+                <td>{{ produit.nom }}</td>
+                <td>{{ produit.description }}</td>
+                <td>{{ produit.menu }}</td>
+                <td>{{ produit.regime }}</td>
+                <td>{{ produit.prix }} €</td>
+                <td>
+                    <a href="?id={{ produit.idproduit }}"
+                        ><img src="/assets/icons/icons8-remove-30-black.png"</a
+                    >
+                    <a href="update?id={{ produit.idproduit }}"
+                        ><img
+                        src="/assets/icons/icons8-settings-32-black.png"</a
+                    >
+                </td>
+            </tr>
+            {% endfor %} {% else %}
+            <tr>
+                {% for produit in produits %}
+                <td>{{ produit.semaine }}</td>
+                <td>{{ produit.nom }}</td>
+                <td>{{ produit.description }}</td>
+                <td>{{ produit.menu }}</td>
+                <td>{{ produit.regime }}</td>
+                <td>{{ produit.prix }} €</td>
+                <td>
+                    <a href="?id={{ produit.idproduit }}"
+                        ><img src="/assets/icons/icons8-remove-30-black.png"</a
+                    >
+                    <a href="update?id={{ produit.idproduit }}"
+                        ><img
+                        src="/assets/icons/icons8-settings-32-black.png"</a
+                    >
+                </td>
+            </tr>
+            {% endfor %} {% endif %}
+        </tbody>
+    </table>
+</section>
+{% endblock %}
